@@ -1,0 +1,35 @@
+-- INPUT
+"CheckedString"
+@directio.csv(
+    has_header = FALSE
+)
+checked_string = {
+    "ID"
+    @directio.csv.field(name = "ID")
+    id : TEXT;
+    
+    "チェックされる文字列"
+    @directio.csv.field(name = "CHECKED_STRING")
+    checked_string : TEXT;
+};
+
+-- OUTPUT
+"OutputString"
+@directio.csv(
+	charset = "UTF-8",
+    has_header = TRUE
+)
+output_model = {
+
+    @directio.csv.field(name = "ID")
+    id : TEXT;
+
+    @directio.csv.field(name = "CHECKED_STRING")
+    checked_string : TEXT;
+    
+    @directio.csv.field(name = "BOOLEAN_NULL")
+    boolean_null : BOOLEAN;
+    
+    @directio.csv.field(name = "BOOLEAN_BLANK")
+    boolean_blank : BOOLEAN;    
+};
